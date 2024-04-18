@@ -1,0 +1,99 @@
+/*
+require('./bootstrap');
+
+$(function() {
+     $(document).on('click','#logout-btn', function (e){
+        e.preventDefault();
+        $('#logout-form').trigger('submit');
+   });
+});
+*/
+.topnav {
+    background-color: #6c6ade;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 14px 16px;
+}
+.topnav a:link,
+.topnav a:visited,
+.topnav a:hover,
+.topnav a:active{
+    color: #ffffff;
+}
+.topnav .links {
+    display: flex;
+    align-items: center;
+}
+.topnav .links > * {
+    margin-right: 20px;
+}
+.topnav .logout-container {
+    margin-left: auto; /* Push the logout link to the right */
+}
+.topnav a.logout {
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 16px; /* Adjust padding */
+    margin-right: 10px;
+}
+
+.conference-list {
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.conference-item {
+    background-color: #f7f7f7;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 2px solid #6c6ade;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conference-item h2, .conference-item p {
+    color: #3b4351;
+    margin: 0;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #6c6ade;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #6c6ade;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+}
+
+.btn.delete {
+    background-color: darkred;
+    color: #ffffff;
+    margin-top: 16px;
+}
+.create-button-container {
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #6c6ade;
+    color: #ffffff;
+    text-align: right; /* Align button container to the right */
+    margin-top: 15px; /* Add margin at the top */
+    margin-left: 10px; /* Adjust right margin to move the button slightly to the left */
+    cursor: pointer;
+}
