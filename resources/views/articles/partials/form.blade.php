@@ -1,30 +1,24 @@
 <div>
-    <label for="title-input">Title</label>
-    <input id="title-input" type="text" name="title" value="{{old('title', optional($article ?? null)->title)}}">
-    @error('title')
-    <p>{{$message}}</p>
-    @enderror
+    <label class="form-label" for="input-example-1">Title</label>
+    <input class="form-input" type="text" id="input-example-1" placeholder="Title" value="{{old('title', optional($article ?? null)->title)}}">
+
 </div>
 <div>
-    <label for="content-input">Content</label>
-    <textarea id="content=input" name="content">{{old('content',optional($article ?? null)->content)}}</textarea>
-    @error('content')
-    <p>{{$message}}</p>
-    @enderror
+    <label class="form-label" for="input-example-3">Content</label>
+    <textarea class="form-input" id="input-example-3" rows="2" placeholder="Content">{{old('content',optional($article ?? null)->content)}}</textarea>
+
 </div>
 <div>
-    <label for="date-input">Date and Time</label>
-    <input type="text" id="datepicker" name="dateTime" value="{{ old('dateTime', optional($article ?? null)->dateTime) }}">
-    @error('dateTime')
-    <p>{{$message}}</p>
-    @enderror
+    <label class="form-label" for="input-example-1">Date and Time</label>
+    <input class="form-input" type="text" id="input-example-1" placeholder="Date and Time" value="{{ old('dateTime', optional($article ?? null)->dateTime) }}">
+
 </div>
 <div>
-    <label for="address-input">Address</label>
-    <input id="address-input" type="text" name="address" value="{{old('address', optional($article ?? null)->address)}}">
-    @error('address')
-    <p>{{$message}}</p>
-    @enderror
+    <label class="form-label" for="input-example-1">Address</label>
+    <input class="form-input" type="text" id="input-example-1" placeholder="Address" value="{{old('address', optional($article ?? null)->address)}}">
+
 </div>
+<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 
