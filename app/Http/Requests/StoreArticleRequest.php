@@ -23,9 +23,9 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title'=>'required|min:5|max:20',
-            'content'=>'required|min:10'
-            //add address
-            //add date
+            'content'=>'required|min:10',
+            'dateTime'=>'required|dateTime',
+            'address' =>'required|min:30',
         ];
     }
 
