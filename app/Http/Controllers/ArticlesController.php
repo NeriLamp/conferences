@@ -34,7 +34,7 @@ class ArticlesController extends Controller
      */
     public function create():View
     {
-        return \view('articles.create');
+        return view('articles.create');
     }
 
     /**
@@ -56,12 +56,11 @@ class ArticlesController extends Controller
     }*/
     public function store(StoreArticleRequest $request,Article $article): RedirectResponse
     {
-$validated =$request-> validated();
-        $article->title = $validated['title'];
-        $article->content =  $validated['content'];
-        $article->save();
-        $request->session()->flash('status','Articlecreated');
- return  redirect()->route('articles.show',['article'=> $article->id]);
+        $validated =$request-> validated();
+        $articles = $article->create($validated);
+        $articles -> save();
+        $request->session()->flash('status','Article created');
+ return  redirect()->route('articles.show',['article'=> $articles->id]);
     }
 
     /**
@@ -75,7 +74,7 @@ $validated =$request-> validated();
     {
         abort_if(!isset($this->articles[$id]), 404);
 
-        return \view('articles.show',['article' => $this->articles[$id]]);
+        return view('articles.show',['article' => $this->articles[$id]]);
     }
 
     /**
