@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -23,9 +26,9 @@ class ArticlesController extends Controller
         ]
     ];
 
-    public function index(): View
+    public function index(Article $article):View
     {
-        return view('articles.index', ['articles'=> $this->articles]);
+        return view('articles.index', ['articles'=> $article->all()]);
     }
 
 
@@ -40,25 +43,10 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    /*public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'title'=>'required|min:5|max:20',
-            'content'=>'required|min:10'
-        ]);
-        //$validated = $request->validate();
-        $article = new Article();
-        $article->title = $request->input('title');
-        $article->content = $request->input('content');
-        $article->save();
-
-        return redirect()->route('articles.show',['article' => $article->id]);
-    }*/
     public function store(StoreArticleRequest $request,Article $article): RedirectResponse
     {
         $validated =$request-> validated();
         $articles = $article->create($validated);
-        $articles -> save();
         $request->session()->flash('status','Article created');
  return  redirect()->route('articles.show',['article'=> $articles->id]);
     }
@@ -66,43 +54,54 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      */
-    /*public function show(string $id)
-    {
-        //
-    }*/
     public function show(int $id): View
     {
-        abort_if(!isset($this->articles[$id]), 404);
 
-        return view('articles.show',['article' => $this->articles[$id]]);
+
+        return view('articles.show', ['articles' => Article::findOrFail($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|Factory|Application
     {
-        //
+        $article= Article::findOrFail($id);
+       return view('articles.edit', ['articles'=>$article]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateArticleRequest $request,  $id): RedirectResponse
     {
-        //
+        $article= Article::findOrFail($id);
+        $validated = $request->validated();
+        $article->update($validated);
+
+        $request->session()->flash('status', 'Updated');
+        return redirect()->route('articles.show',['article'=>$article->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id): RedirectResponse
     {
-        //
+        $article =(new Article)->findOrFail($id);
+        $article->delete();
+
+        session()->flash('status', 'Deleted');
+        return redirect()->route('articles.index');
     }
 
-    public function any()
+    public function any(): bool
     {
         return $this->count() > 0;
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index','show');
     }
 }

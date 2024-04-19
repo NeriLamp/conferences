@@ -19,13 +19,13 @@ class ArticlesSeeder extends Seeder
             [
                 'title'=>Lorem::sentence(5),
                 'content'=>Lorem::text(),
-                'dateTime'=>Carbon::now(),
+                'dateTime'=>Carbon::now()->format('Y-m-d H:i'),
                 'address'=>Lorem::text()
         ],
         [
             'title'=>Lorem::sentence(5),
             'content'=>Lorem::text(),
-            'dateTime'=>Carbon::now(),
+            'dateTime'=>Carbon::now()->format('Y-m-d H:i'),
             'address'=>Lorem::text()
         ]
         ]);

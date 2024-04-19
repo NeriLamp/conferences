@@ -12,3 +12,19 @@
     <p>{{$message}}</p>
     @enderror
 </div>
+<div>
+    <label for="date-input">Date and Time</label>
+    <input type="text" id="datepicker" name="dateTime" value="{{ old('dateTime', optional($article ?? null)->dateTime) }}">
+    @error('dateTime')
+    <p>{{$message}}</p>
+    @enderror
+</div>
+<div>
+    <label for="address-input">Address</label>
+    <input id="address-input" type="text" name="address" value="{{old('address', optional($article ?? null)->address)}}">
+    @error('address')
+    <p>{{$message}}</p>
+    @enderror
+</div>
+
+
