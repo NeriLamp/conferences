@@ -3,7 +3,7 @@
 @section('title','Aricle Cretion Form')
 
 @section('content')
-    <h4>Article creation form</h4>
+    <div class="article-text">Article creation form</div>
     <div class="form-group">
     <form action="{{route('articles.store')}}" method="POST">
         @csrf
@@ -22,4 +22,6 @@
     </div>
 @endsection
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+
 

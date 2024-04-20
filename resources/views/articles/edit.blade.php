@@ -5,6 +5,8 @@
         @csrf
         @method('PUT')
         @include('articles.partials.form')
-        <div><input type="submit" value="Update"></div>
+        <div><input class="btn btn-primary" type="submit" value="Update"></div>
     </form>
 @endsection
+<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">

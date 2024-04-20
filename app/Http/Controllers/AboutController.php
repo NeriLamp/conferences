@@ -8,6 +8,6 @@ class AboutController extends Controller
 {
     public function __invoke()
     {
-        return 'Single';
+        return 'Neringa Lampickaite ISf-22/1';
     }
 }

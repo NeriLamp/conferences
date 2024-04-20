@@ -23,6 +23,10 @@
             </form>
         @endguest
         </div>
+        <div class="navbar-element">
+           <a href="/articles">Conferences</a>
+            <a href="/about">About</a>
+        </div>
     </header>
     <main class="py-3">
         <div class="container">
@@ -35,21 +39,3 @@
 <script src="{{mix('js/app.js')}}"></script>
 </body>
 </html>
-<style>
-    .navbar{
-        background-color: #6b30c9;
-    }
-    .login-text{
-        float: right;
-        margin: 10px 20px;
-    }
-    .navbar {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .login-text a{
-        color :#cacaed;
-        font-size: 20px;
-        font-weight: 600;
-    }
-</style>

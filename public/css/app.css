@@ -19,3 +19,68 @@
 .m-10 {
   margin: 10px;
 }
+
+.btn-primary {
+  margin-top: 20px;
+}
+
+.article-text {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.navbar {
+  background: linear-gradient(70deg, #5e3cd5, #25068d);
+}
+
+.login-text {
+  margin: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+}
+
+.login-text a {
+  color: #cacaed;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#button {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  color: #3b4351;
+  background: #fff;
+  line-height: 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(94, 60, 213) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+  transition: all 0.2s;
+}
+
+#button:hover {
+  box-shadow: rgb(94, 60, 213) -2px -2px 0px 2px, rgb(255, 198, 0) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+  transform: scale(1.01);
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  margin-right: 10px;
+}
+
+.creat_button {
+  margin: 10px 0px;
+}
+
+.content {
+  margin-bottom: 30px;
+}
